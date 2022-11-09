@@ -1,0 +1,42 @@
+{
+  "name": "restful-api-tutorial-step1",
+  "version": "1.0.0",
+  "description": "A tutorial on how to create a complete Node.js based RESTful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon src/index",
+    "migrate": "knex migrate:latest",
+    "migrate-all": "knex migrate:rollback --all",
+    "seed": "knex seed:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-gustavoc/rest-api-tutorial-step1.git"
+  },
+  "keywords": [
+    "restful-api",
+    "node.js",
+    "api"
+  ],
+  "author": "Lucas Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas-gustavoc/rest-api-tutorial-step1/issues"
+  },
+  "homepage": "https://github.com/lucas-gustavoc/rest-api-tutorial-step1#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^2.1.0",
+    "sqlite3": "^5.0.8",
+    "uniqid": "^5.4.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "jest": "^28.1.2",
+    "nodemon": "^2.0.18"
+  }
+}

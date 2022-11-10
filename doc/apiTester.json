@@ -247,7 +247,7 @@
                   "path": "/sepaTransfers"
                 },
                 "id": "60b30237-d0d8-40d0-bf32-ac8f33f05b27",
-                "name": "get sepaTransfer",
+                "name": "get cbPayment",
                 "headers": [
                   {
                     "enabled": true,
@@ -569,7 +569,7 @@
                   },
                   "bodyType": "Text",
                   "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"total\": \"300\",\n  \"description\": \"CB PAYMENT\",\n  \"extra\": \"\",\n  \"accountId\": 1\n}"
+                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"total\": \"-400\",\n  \"description\": \"Transaction CB 4\",\n  \"merchantId\": \"3948000000001124\",\n  \"merchantCategoryCode\": \"MCC5313\",\n  \"countryCode\": \"FR\",\n  \"merchantName\": \"YOUTUBE MEDIA\"\n}"
                 },
                 "uri": {
                   "query": {
@@ -577,10 +577,53 @@
                     "items": []
                   },
                   "host": "${urlTest}",
-                  "path": "/transactions"
+                  "path": "/transactions/cbPayment"
                 },
                 "id": "1e615d4e-7b6d-421e-9fb4-073f4ddfead0",
-                "name": "post ",
+                "name": "post cb payment",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer ${\"tokenTest\"}"
+                  }
+                ],
+                "assertions": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "https://tools.ietf.org/html/rfc7231#section-4.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"type\": \"sepa_transfer\",\n  \"total\": \"100\",\n  \"description\": \"Transaction CB 2\",\n  \"expeditor_name\": \"Alex delamare\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${urlTest}",
+                  "path": "/transactions/sepaTransfer"
+                },
+                "id": "c1686893-5ff9-4114-b070-8d2c8d69dce1",
+                "name": "post sepa tranfer",
                 "headers": [
                   {
                     "enabled": true,
@@ -729,7 +772,7 @@
         "fd12b760-7f93-4401-83be-3ad9398bf9bd": {
           "createdAt": "2022-11-06T09:44:58.637+01:00",
           "name": "tokenTest",
-          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJqZXNzIiwibGFzdE5hbWUiOiJsZW1haXRyZSIsImVtYWlsIjoidGVzcy5qZXNzU0BnbWFpbC5jb20iLCJpYXQiOjE2Njc4MjYyMjMsImV4cCI6MTY2NzgzMzQyM30.PAM6efP0sJH8WxHx2SsjfWfJ0bGQRa48ujYM0IV1gjs",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJqZXNzIiwibGFzdE5hbWUiOiJsZW1haXRyZSIsImVtYWlsIjoidGVzcy5qZXNzU0BnbWFpbC5jb20iLCJpYXQiOjE2NjgwOTMxNTIsImV4cCI6MTY2ODEwMDM1Mn0.1e6sUPN_8i1LUsEphWgq2O8SnI30lOyWBBBwaxpt6Gs",
           "enabled": true,
           "private": false
         }

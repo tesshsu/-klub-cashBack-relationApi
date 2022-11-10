@@ -32,9 +32,9 @@ class Account {
     }
 
     // tested
-    static async getOne(id) {
-        const account = await db('accounts').where({id})
-        
+    static async getMyAccount(req) {
+        const account = await db('accounts').where('user_id', '=', 3)
+
         /**
          * In case of wish not found, knex returns an empty array.
          * Otherwise, it returns an array with just one item inside,
@@ -54,9 +54,9 @@ class Account {
 
         if (patches.iban) accountToPatch.iban = patches.iban
         if (patches.balance) accountToPatch.balance = patches.balance
-        
+
         const patch = await db('accounts').where({id}).update(accountToPatch, ['id', 'iban', 'balance'])
-        
+
         if (patch > 0) return { message: 'Account updated successfully!'}
         return undefined
 
@@ -65,7 +65,7 @@ class Account {
     // tested
     static async delete(id) {
         const deletion = await db('accounts').where({id}).del()
-        
+
         if (deletion > 0) return { message: 'Account deleted successfully!' }
         return undefined
     }

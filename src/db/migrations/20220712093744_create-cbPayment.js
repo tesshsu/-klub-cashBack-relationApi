@@ -9,9 +9,6 @@ exports.up = function(knex) {
         table.string('merchantCategoryCode', 30).nullable()
         table.string('countryCode', 10).nullable()
         table.string('merchantName', 30).nullable()
-        table.integer('transaction_id').notNullable()
-            .references('id')
-            .inTable('transactions')
     })
 };
 
@@ -20,5 +17,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('sepaTransfers');
+    return knex.schema.dropTableIfExists('cbPayments');
 };

@@ -4,6 +4,8 @@ const db = knex(config.development)
 
 class Account {
 
+    static TABLE_NAME = 'accounts';
+
     // tested
     static async create(account) {
         if (Account.validate(account)) {
@@ -32,8 +34,8 @@ class Account {
     }
 
     // tested
-    static async getMyAccount(req) {
-        const account = await db('accounts').where('user_id', '=', 3)
+    static async getMyAccount(userId) {
+        const account = await db('accounts').where('user_id', '=', userId)
 
         /**
          * In case of wish not found, knex returns an empty array.

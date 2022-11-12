@@ -12,13 +12,15 @@ const bcrypt = require('bcrypt')
 
 class User {
 
+    static TABLE_NAME = 'users';
+
     static users = []
 
     // tested
     static async create(user) {
         if (User.validate(user)) {
             user.password = bcrypt.hashSync(user.password, 10)
-            return db('users').insert(user)
+            return db(User.TABLE_NAME).insert(user)
         } else {
             return undefined
         }
@@ -36,8 +38,8 @@ class User {
 
     // tested
     static async getOneByEmail(email) {
-        const user = await db('users').where({email})
-        
+        const user = await db(User.TABLE_NAME).where({email})
+
         /**
          * In case of user not found, knex returns an empty array.
          * Otherwise, it returns an array with just one item inside,

@@ -7,8 +7,9 @@ exports.up = function(knex) {
         table.increments('id')
         table.enu('type', ['transfer', 'payment', 'refund', 'sepa_transfer','cb_payment']).notNullable()
         table.integer('transaction_id').notNullable()
-        table.integer('total').notNullable()
-        table.text('description').nullable()
+        table.integer('amount').notNullable() // in cents
+        table.string('currency', 3).notNullable() // ISO 4217 Currency Codes
+        table.string('description', 256).nullable()
         table.integer('account_id').notNullable()
             .references('id')
             .inTable('accounts')

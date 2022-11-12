@@ -5,6 +5,8 @@ const db = knex(config.development)
 
 class SepaTransfer extends Transaction{
 
+    static TABLE_NAME = 'sepaTransfers';
+
     // tested
     static async create(sepaTransfer) {
         if (SepaTransfer.validate(sepaTransfer)) {

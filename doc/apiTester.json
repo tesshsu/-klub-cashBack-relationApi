@@ -4,14 +4,14 @@
     {
       "entity": {
         "type": "Project",
-        "id": "ad26324c-69d8-425c-b58d-ff245b5ae1aa",
+        "id": "cf33b872-4e18-4396-9243-b597558dc2d8",
         "name": "kLUB"
       },
       "children": [
         {
           "entity": {
             "type": "Service",
-            "id": "e3f988d3-2a2a-4d72-bbce-a0d3b2ec6a44",
+            "id": "ec7fe298-49dc-4569-93b4-85b5b3e5e50b",
             "name": "Account service"
           },
           "children": [
@@ -40,7 +40,7 @@
                   "host": "${urlTest}",
                   "path": "/accounts/2"
                 },
-                "id": "82ede48c-dd54-4df1-a1f1-ebed90509a88",
+                "id": "bea8be0c-df64-41a5-a8ba-21e772bafa01",
                 "name": "delete account",
                 "headers": [
                   {
@@ -77,7 +77,7 @@
                   "host": "${urlTest}",
                   "path": "/accounts"
                 },
-                "id": "4e9fba3f-0f44-4085-88d2-4e3765d09336",
+                "id": "b70ba928-4d64-465f-99db-c693f4ee8b71",
                 "name": "get account",
                 "headers": [
                   {
@@ -115,7 +115,7 @@
                   "host": "${urlTest}",
                   "path": "/accounts/1"
                 },
-                "id": "7a8fe024-e266-4335-855c-9bce9fba864b",
+                "id": "f1ef9a5e-72be-4566-a473-2887caef408c",
                 "name": "patch account",
                 "headers": [
                   {
@@ -158,7 +158,7 @@
                   "host": "${urlTest}",
                   "path": "/accounts"
                 },
-                "id": "a3d1f999-0135-4684-abf1-5b83ac1dee14",
+                "id": "97b3a6fa-3856-4da9-a97e-5f999164fd77",
                 "name": "post account",
                 "headers": [
                   {
@@ -180,133 +180,7 @@
         {
           "entity": {
             "type": "Service",
-            "id": "e25f6338-19dd-454f-a4c8-c3f95e77dce8",
-            "name": "CbPayment service"
-          },
-          "children": [
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
-                  "name": "DELETE"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"wish\": \"test second wish add to patch\",\n  \"priority\": \"1\"\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${urlTest}",
-                  "path": "/sepaTransfer/1"
-                },
-                "id": "d43a6a03-a604-48d6-9832-6417ad26e0dd",
-                "name": "delete sepaTransfer",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${\"tokenTest\"}"
-                  }
-                ],
-                "assertions": []
-              }
-            },
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
-                  "name": "GET"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzczIiLCJlbWFpbCI6InRlc3MyLmhzdUBnbWFpbC5jb20iLCJpYXQiOjE2Njc3MjI3NTEsImV4cCI6MTY2NzcyOTk1MX0.7UcGkXLawVOTTU4d1t9PXqRCzXUZj_V24GbukAZHXvk\"\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${urlTest}",
-                  "path": "/sepaTransfers"
-                },
-                "id": "60b30237-d0d8-40d0-bf32-ac8f33f05b27",
-                "name": "get cbPayment",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${\"tokenTest\"}"
-                  }
-                ],
-                "assertions": []
-              }
-            },
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "requestBody": true,
-                  "link": "https://tools.ietf.org/html/rfc7231#section-4.3",
-                  "name": "POST"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"merchantId\": \"3948000000001122\",\n  \"merchantCategoryCode\": \"MCC5311\",\n  \"countryCode\": \"33\",\n  \"merchantName\": \"NEXFLIX MEDIA\",\n  \"transactionId\": 2\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${urlTest}",
-                  "path": "/cbPayment"
-                },
-                "id": "da0db954-d7bd-4256-ab3c-df50df7273fb",
-                "name": "post cbPayment",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${\"tokenTest\"}"
-                  }
-                ],
-                "assertions": []
-              }
-            }
-          ]
-        },
-        {
-          "entity": {
-            "type": "Service",
-            "id": "39020af0-4026-43c0-8e89-98538a1c5fe9",
+            "id": "ca35becc-cd11-46d3-9dcc-aaafd8a9fd7f",
             "name": "SepaTransfer service"
           },
           "children": [
@@ -335,7 +209,7 @@
                   "host": "${urlTest}",
                   "path": "/sepaTransfer/1"
                 },
-                "id": "860e896c-ca7a-4737-b95e-0cf73d8a08cf",
+                "id": "2a1c0a1e-3374-4792-9702-7479ca97094c",
                 "name": "delete sepaTransfer",
                 "headers": [
                   {
@@ -372,7 +246,7 @@
                   "host": "${urlTest}",
                   "path": "/sepaTransfers"
                 },
-                "id": "983d2700-6ad6-483a-a905-dee3807dde62",
+                "id": "5ca7066c-3064-4515-87b3-cb265de6807d",
                 "name": "get sepaTransfer",
                 "headers": [
                   {
@@ -410,7 +284,7 @@
                   "host": "${urlTest}",
                   "path": "/sepaTransfer"
                 },
-                "id": "7aab303f-1bd4-42a0-9f9a-c3fffa1a31f6",
+                "id": "2a2a1831-e774-42bf-bacc-fc9d2eea2284",
                 "name": "post sepaTransfer",
                 "headers": [
                   {
@@ -432,7 +306,7 @@
         {
           "entity": {
             "type": "Service",
-            "id": "48a4a80f-83a9-4259-a98e-1863f435e6a4",
+            "id": "dbcae11d-d5b9-4c95-82cd-c3b4ed2e991b",
             "name": "Transaction service"
           },
           "children": [
@@ -461,7 +335,7 @@
                   "host": "${urlTest}",
                   "path": "/transactions/2"
                 },
-                "id": "e575b3d1-d1a2-478e-be18-7634c0c81a73",
+                "id": "648eacd0-1be0-4bbc-b7fc-19738dcca0ea",
                 "name": "delete transactions",
                 "headers": [
                   {
@@ -498,7 +372,7 @@
                   "host": "${urlTest}",
                   "path": "/transactions"
                 },
-                "id": "dddab53f-1c71-4173-a178-08bed8dc8ea2",
+                "id": "a4cc73bd-eaf5-48b1-9000-b63bedb1717a",
                 "name": "get transactions",
                 "headers": [
                   {
@@ -536,7 +410,7 @@
                   "host": "${urlTest}",
                   "path": "/transactions/1"
                 },
-                "id": "7426fec5-6e12-42b9-a0a0-6fe6126c19be",
+                "id": "b6b3d35a-e5e7-49cd-b3d8-e39e59a9912b",
                 "name": "patch transaction",
                 "headers": [
                   {
@@ -569,17 +443,17 @@
                   },
                   "bodyType": "Text",
                   "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"total\": \"-400\",\n  \"description\": \"Transaction CB 4\",\n  \"merchantId\": \"3948000000001124\",\n  \"merchantCategoryCode\": \"MCC5313\",\n  \"countryCode\": \"FR\",\n  \"merchantName\": \"YOUTUBE MEDIA\"\n}"
+                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"amount\": -400,\n  \"currency\": \"EUR\",\n  \"description\": \"Transaction CB 4\",\n  \"merchantId\": \"3948000000001124\",\n  \"merchantCategoryCode\": \"MCC5313\",\n  \"countryCode\": \"FR\",\n  \"merchantName\": \"YOUTUBE MEDIA\"\n}"
                 },
                 "uri": {
                   "query": {
                     "delimiter": "&",
                     "items": []
                   },
-                  "host": "${urlTest}",
-                  "path": "/transactions/cbPayment"
+                  "host": "${klub_host}",
+                  "path": "/transactions"
                 },
-                "id": "1e615d4e-7b6d-421e-9fb4-073f4ddfead0",
+                "id": "a3e05be9-9493-4d7a-afb6-ccec3d0c0e58",
                 "name": "post cb payment",
                 "headers": [
                   {
@@ -587,6 +461,132 @@
                     "name": "Content-Type",
                     "value": "application/json"
                   },
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer ${\"klub_token\"}"
+                  }
+                ],
+                "assertions": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "https://tools.ietf.org/html/rfc7231#section-4.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"type\": \"sepa_transfer\",\n  \"amount\": \"100\",\n  \"description\": \"Transaction CB 2\",\n  \"expeditor_name\": \"Alex delamare\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/transactions"
+                },
+                "id": "b26a46e4-4bf5-4c20-a795-50769878f995",
+                "name": "post sepa tranfer",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer ${\"tokenTest\"}"
+                  }
+                ],
+                "assertions": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "c7a6fc45-8269-4e04-acb6-8d5caee3d9e3",
+            "name": "creditCardTransaction service"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"wish\": \"test second wish add to patch\",\n  \"priority\": \"1\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${urlTest}",
+                  "path": "/sepaTransfer/1"
+                },
+                "id": "5c2aae60-73d6-4fac-ac7e-00a0b81eda88",
+                "name": "delete sepaTransfer",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer ${\"tokenTest\"}"
+                  }
+                ],
+                "assertions": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzczIiLCJlbWFpbCI6InRlc3MyLmhzdUBnbWFpbC5jb20iLCJpYXQiOjE2Njc3MjI3NTEsImV4cCI6MTY2NzcyOTk1MX0.7UcGkXLawVOTTU4d1t9PXqRCzXUZj_V24GbukAZHXvk\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${urlTest}",
+                  "path": "/sepaTransfers"
+                },
+                "id": "72146c36-0949-4a97-9335-ed88294a84de",
+                "name": "get creditCardTransaction",
+                "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
@@ -612,7 +612,7 @@
                   },
                   "bodyType": "Text",
                   "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"sepa_transfer\",\n  \"total\": \"100\",\n  \"description\": \"Transaction CB 2\",\n  \"expeditor_name\": \"Alex delamare\"\n}"
+                  "textBody": "{\n  \"merchantId\": \"3948000000001122\",\n  \"merchantCategoryCode\": \"MCC5311\",\n  \"countryCode\": \"33\",\n  \"merchantName\": \"NEXFLIX MEDIA\",\n  \"transactionId\": 2\n}"
                 },
                 "uri": {
                   "query": {
@@ -620,10 +620,10 @@
                     "items": []
                   },
                   "host": "${urlTest}",
-                  "path": "/transactions/sepaTransfer"
+                  "path": "/creditCardTransaction"
                 },
-                "id": "c1686893-5ff9-4114-b070-8d2c8d69dce1",
-                "name": "post sepa tranfer",
+                "id": "4c0cdc94-16b2-4745-a630-b89078be66b2",
+                "name": "post creditCardTransaction",
                 "headers": [
                   {
                     "enabled": true,
@@ -667,7 +667,7 @@
               "host": "${urlTest}",
               "path": "/register"
             },
-            "id": "0b62532a-60e3-4492-89c1-79295ff068e5",
+            "id": "930d0e74-e72f-4f0c-9c3c-1dbdfde22ceb",
             "name": "Register",
             "headers": [
               {
@@ -695,17 +695,17 @@
               },
               "bodyType": "Text",
               "textBodyEditorHeight": 291,
-              "textBody": "{\n  \"email\": \"tess.jessS@gmail.com\",\n  \"password\": \"test\"\n}"
+              "textBody": "{\n  \"email\": \"kevin@domain.com\",\n  \"password\": \"xyz\"\n}"
             },
             "uri": {
               "query": {
                 "delimiter": "&",
                 "items": []
               },
-              "host": "${urlTest}",
+              "host": "${klub_host}",
               "path": "/login"
             },
-            "id": "02d03f95-59ab-4cb5-bf22-31876d5ff27b",
+            "id": "12649b3c-77c3-4434-88e9-7c4bdc143b12",
             "name": "login",
             "headers": [
               {
@@ -742,7 +742,7 @@
               "host": "${urlTest}",
               "path": "/welcome"
             },
-            "id": "6a10b48d-fddf-4822-bc30-eb6a3bce65cd",
+            "id": "b1061d70-9441-410b-9caa-7f3c6c93dd88",
             "name": "welcome",
             "headers": [
               {
@@ -755,28 +755,6 @@
           }
         }
       ]
-    }
-  ],
-  "environments": [
-    {
-      "id": "6b93c190-ba22-4788-a8ab-2c0cc4a03db2",
-      "name": "local",
-      "variables": {
-        "4f47402a-be97-4c6c-8cc1-5d4f70d6f63d": {
-          "createdAt": "2022-11-06T09:44:50.147+01:00",
-          "name": "urlTest",
-          "value": "http://localhost:3006",
-          "enabled": true,
-          "private": false
-        },
-        "fd12b760-7f93-4401-83be-3ad9398bf9bd": {
-          "createdAt": "2022-11-06T09:44:58.637+01:00",
-          "name": "tokenTest",
-          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJqZXNzIiwibGFzdE5hbWUiOiJsZW1haXRyZSIsImVtYWlsIjoidGVzcy5qZXNzU0BnbWFpbC5jb20iLCJpYXQiOjE2NjgwOTMxNTIsImV4cCI6MTY2ODEwMDM1Mn0.1e6sUPN_8i1LUsEphWgq2O8SnI30lOyWBBBwaxpt6Gs",
-          "enabled": true,
-          "private": false
-        }
-      }
     }
   ]
 }

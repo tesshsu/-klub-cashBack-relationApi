@@ -3,7 +3,7 @@ const router = new express.Router()
 const CreditCardTransaction = require('../model/creditCardTransaction')
 const auth = require('../middleware/auth')
 
-router.post('/creditCardTransaction', auth, async (req, res) => {
+/*router.post('/creditCardTransaction', auth, async (req, res) => {
     try {
         const nCreditCardTransaction = await CreditCardTransaction.create({...req.body, transactionId: req.transaction.id})
         if (nCreditCardTransaction) {
@@ -14,11 +14,12 @@ router.post('/creditCardTransaction', auth, async (req, res) => {
     } catch(err) {
         res.status(500).send({ message: err.message })
     }
-})
+})*/
 
-router.get('/creditCardTransaction', auth, async (req, res) => {
+router.get('/creditCardTransactions', auth, async (req, res) => {
     try {
-        res.status(200).send(await CreditCardTransaction.getAllOfOneUser(req.user.id))
+        console.log('creditCardTransaction')
+        res.status(200).send(await CreditCardTransaction.getAll())
     } catch(err) {
         res.status(500).send({ message: err.message })
     }

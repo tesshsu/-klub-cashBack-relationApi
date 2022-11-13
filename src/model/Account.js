@@ -30,7 +30,7 @@ class Account {
 
     // tested
     static async getAll() {
-        return await db.select().table('accounts')
+        return db.select().table('accounts')
     }
 
     // tested
@@ -47,7 +47,7 @@ class Account {
     }
 
     static async getAllOfOneUser(userId) {
-        return await db('accounts').where({ user_id: userId })
+        return db('accounts').where({ user_id: userId })
     }
 
     // tested

@@ -1,5 +1,7 @@
 const knex = require('knex')
 const config = require('../../knexfile')
+const Merchant = require("./Merchant");
+const Transaction = require("./Transaction");
 const db = knex(config.development)
 
 class Cashback {
@@ -23,9 +25,21 @@ class Cashback {
         if (!cashback.status) valid = false
         if (!cashback.amount) valid = false
         if (!cashback.transaction_id) valid = false
+        if (!cashback.merchant_id) valid = false
         return valid
     }
 
+    static getTotalAmountByMerchant () {
+        return db.table(Cashback.TABLE_NAME)
+            .select('merchant_id')
+            .select(Merchant.TABLE_NAME + '.name')
+            .sum('amount')
+            .groupBy('merchant_id')
+            .join(Merchant.TABLE_NAME, function() {
+                this
+                    .on(Merchant.TABLE_NAME + '.id', '=', Cashback.TABLE_NAME + '.merchant_id')
+            })
+    }
 
 }
 

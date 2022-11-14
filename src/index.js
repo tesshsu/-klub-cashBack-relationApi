@@ -13,6 +13,7 @@ require('dotenv').config()
 const accountsRouter = require('./controller/account')
 const transactionsRouter = require('./controller/transaction')
 const webhooksRouter = require('./controller/webhooks')
+const statsRouter = require('./controller/stats')
 
 /*
     Here we are just importing the router we've created at the
@@ -31,6 +32,7 @@ app.use(express.json())
 app.use(accountsRouter)
 app.use(transactionsRouter)
 app.use(webhooksRouter)
+app.use(statsRouter)
 
 /*
     Here we are just attaching the router we've created at the

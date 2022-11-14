@@ -41,14 +41,6 @@ router.get('/transactions', auth, async(req, res) => {
     }
 })
 
-// Admin get list of cb payment with webhook marchant info
-router.get('/transactions/creditCardTransactions', auth, async(req, res) => {
-    try {
-        res.status(200).send(await CreditCardTransaction.getAll())
-    } catch (err) {
-        res.status(500).send({message: err.message})
-    }
-})
 
 
 router.delete('/transactions/:id', auth, async(req, res) => {

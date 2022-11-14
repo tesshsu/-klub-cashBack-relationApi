@@ -598,7 +598,7 @@
                 "delimiter": "&",
                 "items": []
               },
-              "host": "${urlTest}",
+              "host": "${klub_host}",
               "path": "/register"
             },
             "id": "aa47686c-b2ac-4832-9a74-4a96dab92153",
@@ -673,7 +673,7 @@
                 "delimiter": "&",
                 "items": []
               },
-              "host": "${urlTest}",
+              "host": "${klub_host}",
               "path": "/welcome"
             },
             "id": "24260097-b6fe-4ff8-91e9-c9d1093a4b14",
@@ -682,7 +682,7 @@
               {
                 "enabled": true,
                 "name": "Authorization",
-                "value": "Bearer ${\"tokenTest\"}"
+                "value": "Bearer ${\"klub_token\"}"
               }
             ],
             "assertions": []

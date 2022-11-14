@@ -4,14 +4,14 @@
     {
       "entity": {
         "type": "Project",
-        "id": "7c232113-f4c2-4c9a-94f2-47e89312056b",
+        "id": "30045290-df8d-4cfd-b04b-e05840b0be64",
         "name": "kLUB"
       },
       "children": [
         {
           "entity": {
             "type": "Service",
-            "id": "17e0946c-fd9f-446a-85cb-5f43eb20fe8d",
+            "id": "2aa474dd-8017-40e5-8dce-df841b7559f9",
             "name": "Account service"
           },
           "children": [
@@ -37,16 +37,16 @@
                     "delimiter": "&",
                     "items": []
                   },
-                  "host": "${urlTest}",
+                  "host": "${klub_host}",
                   "path": "/accounts/2"
                 },
-                "id": "5668a8d4-aa10-4f79-9c42-d3dae0ec2d06",
+                "id": "4a763d9a-686d-4d94-bec0-4b516943c66b",
                 "name": "delete account",
                 "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"klub_token\"}"
                   }
                 ],
                 "assertions": []
@@ -77,13 +77,13 @@
                   "host": "${klub_host}",
                   "path": "/accounts"
                 },
-                "id": "cf27bc31-23e0-4e35-9acf-d51b251b5aa1",
+                "id": "a5a0c171-1197-4a90-948d-1846b6f334d8",
                 "name": "get account",
                 "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"klub_token\"}"
                   }
                 ],
                 "assertions": []
@@ -112,16 +112,16 @@
                     "delimiter": "&",
                     "items": []
                   },
-                  "host": "${urlTest}",
+                  "host": "${klub_host}",
                   "path": "/accounts/1"
                 },
-                "id": "16713b97-ed87-4244-b1b3-5ea28bb3bcc3",
+                "id": "e70cd518-8fa8-45f7-a85e-849477de3b39",
                 "name": "patch account",
                 "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"klub_token\"}"
                   },
                   {
                     "enabled": true,
@@ -155,10 +155,10 @@
                     "delimiter": "&",
                     "items": []
                   },
-                  "host": "${urlTest}",
+                  "host": "${klub_host}",
                   "path": "/accounts"
                 },
-                "id": "8fb01f60-f821-4b89-803c-f0039146ed52",
+                "id": "3ed759b0-cccb-4501-a95e-60a57083977b",
                 "name": "post account",
                 "headers": [
                   {
@@ -169,7 +169,7 @@
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"klub_token\"}"
                   }
                 ],
                 "assertions": []
@@ -180,7 +180,100 @@
         {
           "entity": {
             "type": "Service",
-            "id": "9f18c4c7-ed3f-45f0-bf3e-e8f26a73b96f",
+            "id": "ade48726-9c5a-4f96-9790-7cf484885fd1",
+            "name": "Stats"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/stats/amountByMerchant"
+                },
+                "id": "842959a0-b516-4632-8e25-3d534d098b53",
+                "name": "Amount by erchant",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/stats/merchantsWithAtLeast2Customers"
+                },
+                "id": "3f7f2abb-5fe4-4142-a2a1-9061ceaa8d34",
+                "name": "registeredMerchantsWithAtLeast2Customers",
+                "headers": []
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/stats/top10unresgitered"
+                },
+                "id": "98e723ea-2ccb-4035-a1ed-bbd8984b316e",
+                "name": "top10unresgitered",
+                "headers": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "01870cae-8065-46d9-adab-678302a4c28d",
             "name": "Transaction service"
           },
           "children": [
@@ -207,89 +300,15 @@
                     "items": []
                   },
                   "host": "${klub_host}",
-                  "path": "/transactions/creditCardTransactions"
-                },
-                "id": "60ab76a7-794b-405c-9b2d-da153ad1022d",
-                "name": "Admin get creditCardTransactions",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
-                  }
-                ],
-                "assertions": []
-              }
-            },
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
-                  "name": "DELETE"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"wish\": \"test second wish add to patch\",\n  \"priority\": \"1\"\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${urlTest}",
-                  "path": "/transactions/2"
-                },
-                "id": "76a36022-d1f9-4d05-88b4-134c11070e67",
-                "name": "delete transactions",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
-                  }
-                ],
-                "assertions": []
-              }
-            },
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
-                  "name": "GET"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzczIiLCJlbWFpbCI6InRlc3MyLmhzdUBnbWFpbC5jb20iLCJpYXQiOjE2Njc3MjI3NTEsImV4cCI6MTY2NzcyOTk1MX0.7UcGkXLawVOTTU4d1t9PXqRCzXUZj_V24GbukAZHXvk\"\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${klub_host}",
                   "path": "/transactions"
                 },
-                "id": "4a7e2fc7-4453-4405-ba34-c0553098a9a1",
+                "id": "fc04135e-bc32-4c4e-8c7a-6fa3e8f12ba0",
                 "name": "get transactions",
                 "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"klub_token\"}"
                   }
                 ],
                 "assertions": []
@@ -311,7 +330,7 @@
                   },
                   "bodyType": "Text",
                   "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"amount\": -120,\n  \"currency\": \"EUR\",\n  \"description\": \"Transaction TEST WEBHOOK 7\",\n  \"merchantId\": \"efe766c766461593d151d12eb6511\",\n  \"merchantCategoryCode\": \"124\",\n  \"countryCode\": \"FR\",\n  \"merchantName\": \"SHINE *FNAC\"\n}"
+                  "textBody": "{\n  \"type\": \"cb_payment\",\n  \"amount\": -400,\n  \"currency\": \"EUR\",\n  \"description\": \"Transaction CB 4\",\n  \"merchantId\": \"3948000000001124\",\n  \"merchantCategoryCode\": \"MCC5313\",\n  \"countryCode\": \"FR\",\n  \"merchantName\": \"YOUTUBE MEDIA\"\n}"
                 },
                 "uri": {
                   "query": {
@@ -321,7 +340,7 @@
                   "host": "${klub_host}",
                   "path": "/transactions"
                 },
-                "id": "739d49fe-1a6a-4f65-a430-1f6e30e6db32",
+                "id": "b757d447-b52c-46ed-a270-8cd9141fb6f3",
                 "name": "post cb payment",
                 "headers": [
                   {
@@ -354,7 +373,7 @@
                   },
                   "bodyType": "Text",
                   "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"sepa_transfer\",\n  \"amount\": \"300\",\n  \"currency\": \"EUR\",\n  \"description\": \"Transaction sepa test TESS\",\n  \"expeditor_name\": \"Tess Hus\"\n}"
+                  "textBody": "{\n  \"type\": \"sepa_transfer\",\n  \"amount\": \"100\",\n  \"currency\": \"EUR\",\n  \"description\": \"Transaction CB 2\",\n  \"expeditor_name\": \"Alex delamare\"\n}"
                 },
                 "uri": {
                   "query": {
@@ -364,7 +383,7 @@
                   "host": "${klub_host}",
                   "path": "/transactions"
                 },
-                "id": "8f64df58-ce7e-4630-b027-2b57123ac656",
+                "id": "bbdf5188-746c-4319-9b8b-0bd052bbb516",
                 "name": "post sepa tranfer",
                 "headers": [
                   {
@@ -386,10 +405,94 @@
         {
           "entity": {
             "type": "Service",
-            "id": "04a14464-947b-4249-9a8d-4169cc08dcaa",
+            "id": "a6920e78-8466-4e61-8350-882cadd55c61",
+            "name": "Webhook"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "https://tools.ietf.org/html/rfc7231#section-4.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"id\": \"40695e2ae8c71302dc73bbb0\",\n  \"amount\":{ \n    \"value\": 123, \n    \"unit\": \"cents\", \n    \"currency\": \"EUR\"\n  },\n  \"type\": \"CARD_AUTHORIZATION\",\n  \"status\": \"OPEN\",\n  \"meta_info\": {\n\t\t\"card_id\":\"efe766c766461593d151d12eb65d8\",\n\t\t\"merchant\": {\n\t\t\t\"id\": \"AUCHAN_ID\",\n\t\t\t\"category_code\":\"4816\",\n\t\t\t\"country_code\":\"FR\",\n\t\t\t\"name\":\"AUCHAN_ID\"\n\t\t}\n  }\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/webhooks/transactions"
+                },
+                "id": "7742a929-fe7d-46c8-a29d-8f3e02664925",
+                "name": "Webhook transactions cb payment",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "assertions": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "46f84b27-b481-436b-8af2-4381e0b4a3dc",
             "name": "creditCardTransaction service"
           },
           "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+                  "name": "DELETE"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBodyEditorHeight": 291,
+                  "textBody": "{\n  \"wish\": \"test second wish add to patch\",\n  \"priority\": \"1\"\n}"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "host": "${klub_host}",
+                  "path": "/sepaTransfer/1"
+                },
+                "id": "d97c4e90-acbc-4186-89d5-b7e3786f1605",
+                "name": "delete sepaTransfer",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer ${\"tokenTest\"}"
+                  }
+                ],
+                "assertions": []
+              }
+            },
             {
               "entity": {
                 "type": "Request",
@@ -413,15 +516,15 @@
                     "items": []
                   },
                   "host": "${klub_host}",
-                  "path": "/creditCardTransactions"
+                  "path": "/sepaTransfers"
                 },
-                "id": "16a3e544-ad97-453f-ad8b-29eea3a28d88",
-                "name": "get creditCardTransactions",
+                "id": "ac296abb-4353-476d-a5ba-c5ec947a997c",
+                "name": "get creditCardTransaction",
                 "headers": [
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"tokenTest\"}"
                   }
                 ],
                 "assertions": []
@@ -453,7 +556,7 @@
                   "host": "${klub_host}",
                   "path": "/creditCardTransaction"
                 },
-                "id": "805f5f02-5208-4bbe-8646-5b86d5d054ee",
+                "id": "d221edc2-5f0e-43a1-b5f4-d75a00494e17",
                 "name": "post creditCardTransaction",
                 "headers": [
                   {
@@ -464,96 +567,7 @@
                   {
                     "enabled": true,
                     "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
-                  }
-                ],
-                "assertions": []
-              }
-            }
-          ]
-        },
-        {
-          "entity": {
-            "type": "Service",
-            "id": "d6a763e2-34db-4572-9551-95dc89a741f8",
-            "name": "webhook service"
-          },
-          "children": [
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
-                  "name": "GET"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzczIiLCJlbWFpbCI6InRlc3MyLmhzdUBnbWFpbC5jb20iLCJpYXQiOjE2Njc3MjI3NTEsImV4cCI6MTY2NzcyOTk1MX0.7UcGkXLawVOTTU4d1t9PXqRCzXUZj_V24GbukAZHXvk\"\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${klub_host}",
-                  "path": "/webhooks/transactions"
-                },
-                "id": "01b69b47-ded5-4cfc-b6fe-052259fdb740",
-                "name": "get webhooks transation",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
-                  }
-                ],
-                "assertions": []
-              }
-            },
-            {
-              "entity": {
-                "type": "Request",
-                "method": {
-                  "requestBody": true,
-                  "link": "https://tools.ietf.org/html/rfc7231#section-4.3",
-                  "name": "POST"
-                },
-                "body": {
-                  "formBody": {
-                    "overrideContentType": true,
-                    "encoding": "application/x-www-form-urlencoded",
-                    "items": []
-                  },
-                  "bodyType": "Text",
-                  "textBodyEditorHeight": 291,
-                  "textBody": "{\n  \"type\": \"CARD_AUTHORIZATION\",\n  \"merchantId\": \"3948000000001122\",\n  \"merchantCategoryCode\": \"MCC5311\",\n  \"countryCode\": \"33\",\n  \"merchantName\": \"NEXFLIX MEDIA\",\n  \"amount\": -400,\n  \"unit\": \"cents\",\n  \"currency\": \"EUR\",\n  \"transactionId\": 2\n}"
-                },
-                "uri": {
-                  "query": {
-                    "delimiter": "&",
-                    "items": []
-                  },
-                  "host": "${klub_host}",
-                  "path": "/webhooks/transactions"
-                },
-                "id": "0519b784-5ca3-4b38-8b6f-c792f718ab87",
-                "name": "post webhooks transation",
-                "headers": [
-                  {
-                    "enabled": true,
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "enabled": true,
-                    "name": "Authorization",
-                    "value": "Bearer ${klub_token}"
+                    "value": "Bearer ${\"tokenTest\"}"
                   }
                 ],
                 "assertions": []
@@ -584,10 +598,10 @@
                 "delimiter": "&",
                 "items": []
               },
-              "host": "${klub_host}",
+              "host": "${urlTest}",
               "path": "/register"
             },
-            "id": "1a001231-c4f2-44e2-abb1-be41491e3ebc",
+            "id": "aa47686c-b2ac-4832-9a74-4a96dab92153",
             "name": "Register",
             "headers": [
               {
@@ -625,7 +639,7 @@
               "host": "${klub_host}",
               "path": "/login"
             },
-            "id": "d2d8bcfb-33bd-4bb4-9a15-8d700596482e",
+            "id": "2a9ac1cf-8d10-45a4-91d5-fd985a0f7d98",
             "name": "login",
             "headers": [
               {
@@ -659,16 +673,16 @@
                 "delimiter": "&",
                 "items": []
               },
-              "host": "${klub_host}",
+              "host": "${urlTest}",
               "path": "/welcome"
             },
-            "id": "e7051fc4-edac-4675-b80c-f906ba049d15",
+            "id": "24260097-b6fe-4ff8-91e9-c9d1093a4b14",
             "name": "welcome",
             "headers": [
               {
                 "enabled": true,
                 "name": "Authorization",
-                "value": "Bearer ${klub_token}"
+                "value": "Bearer ${\"tokenTest\"}"
               }
             ],
             "assertions": []
@@ -692,7 +706,7 @@
         "fd12b760-7f93-4401-83be-3ad9398bf9bd": {
           "createdAt": "2022-11-06T09:44:58.637+01:00",
           "name": "klub_token",
-          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJLZXZpbiIsImxhc3ROYW1lIjoiSmFzb24iLCJlbWFpbCI6ImtldmluQGRvbWFpbi5jb20iLCJpYXQiOjE2NjgzMjU4NDksImV4cCI6MTY2ODMzMzA0OX0.9_Xlj76PCIIGA6fk430NzqDJ0UCqAZkZ541W4MGrZIo",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJLZXZpbiIsImxhc3ROYW1lIjoiSmFzb24iLCJlbWFpbCI6ImtldmluQGRvbWFpbi5jb20iLCJpYXQiOjE2Njg0MTAzNTcsImV4cCI6MTY2ODQxNzU1N30.pgC4zjSqYURTxp9Iuz6OYFM_142Tr0appdQFcWrqsqg",
           "enabled": true,
           "private": false
         }
